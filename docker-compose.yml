@@ -6,5 +6,7 @@ services:
       dockerfile: php-cli.docker
     volumes:
       - ./api:/app
+    environment:
+      - XDEBUG_CONFIG=idekey=api remote_enable=1 remote_host=${DOCKER_HOST_IP}
     ports:
       - "80:80"
