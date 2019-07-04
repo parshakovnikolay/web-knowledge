@@ -10,3 +10,14 @@ services:
       - XDEBUG_CONFIG=idekey=api remote_enable=1 remote_host=${DOCKER_HOST_IP}
     ports:
       - "80:80"
+  node:
+    build:
+      context: ./frontend/docker
+      dockerfile: node.docker
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    tty: true
+    ports:
+      - "3000:3000"
+
